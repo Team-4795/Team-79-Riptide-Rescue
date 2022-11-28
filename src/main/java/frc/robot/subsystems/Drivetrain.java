@@ -4,14 +4,19 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.PWMTalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drivetrain extends SubsystemBase {
 
   // TO-DO Create two PWMTalonSRX motor controllers
-
+  private final PWMTalonSRX m_leftMotor = new PWMTalonSRX(5);
+  private final PWMTalonSRX m_rightMotor = new PWMTalonSRX(6);
 
   // TO-DO Set up the differential drive controller
+  private final DifferentialDrive m_diffDrive = new DifferentialDrive(m_leftMotor, m_rightMotor);
+
 
   /** Creates a new Drivetrain. */
   public Drivetrain() {
@@ -21,6 +26,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void arcadeDrive(double xaxisSpeed, double zaxisRotate) {
+    m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate);
     //TO-DO Call the arcade drive method
   }
 
