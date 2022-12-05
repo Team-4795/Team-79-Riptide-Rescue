@@ -4,8 +4,8 @@ import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Intake extends SubsystemBase{
-    private final PWMVictorSPX intakeMotor = new PWMVictorSPX(4);
-    private final PWMVictorSPX liftMotor = new PWMVictorSPX(3);
+    private final RomiController intakeMotor = new RomiController(4);
+    private final RomiController liftMotor = new RomiController(3);
    
     public void m_intake(double speed){
       intakeMotor.set(speed);

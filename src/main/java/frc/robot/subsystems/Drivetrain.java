@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Drivetrain extends SubsystemBase {
 
   // TO-DO Create two PWMTalonSRX motor controllers
-  private final PWMVictorSPX m_leftMotor = new PWMVictorSPX(6);
-  private final PWMVictorSPX m_rightMotor = new PWMVictorSPX(5);
+  private final RomiController m_leftMotor = new RomiController(6);
+  private final RomiController m_rightMotor = new RomiController(5);
 
   
   // TO-DO Set up the differential drive controller
