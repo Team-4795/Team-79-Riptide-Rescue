@@ -15,10 +15,8 @@ public class Drivetrain extends SubsystemBase {
   private final RomiController m_leftMotor = new RomiController(6);
   private final RomiController m_rightMotor = new RomiController(5);
 
-  
   // TO-DO Set up the differential drive controller
   private final DifferentialDrive m_diffDrive = new DifferentialDrive(m_leftMotor, m_rightMotor);
-
 
   /** Creates a new Drivetrain. */
   public Drivetrain() {
@@ -30,8 +28,8 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void arcadeDrive(double xaxisSpeed, double zaxisRotate) {
-     if(zaxisRotate<0) m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate+0.1);
-     if(zaxisRotate>0) m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate-0.1);
+     if(zaxisRotate<0) m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate);
+     if(zaxisRotate>0) m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate);
 
 
     //m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate);

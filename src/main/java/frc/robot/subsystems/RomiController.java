@@ -10,6 +10,12 @@
     }
     @Override
     public void set(double speed) {
-       super.set(125.0*speed/232.0 + 57.0/232.0);
+      if (speed > 0) {
+         super.set(speed-.17);
+      } else if (speed < 0) {
+         super.set(speed+.17);
+      } else {
+         super.set(speed);
+      }
     }
  }
