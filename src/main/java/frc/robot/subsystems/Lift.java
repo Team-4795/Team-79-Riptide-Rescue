@@ -3,13 +3,14 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Intake extends SubsystemBase{
-    private final PWMVictorSPX intakeMotor = new PWMVictorSPX(3);
+public class Lift extends SubsystemBase{
    
-    public void m_intake(double speed){
-      intakeMotor.set(speed);
-   }
-    
+    private final PWMVictorSPX liftMotor = new PWMVictorSPX(4);
+   
+  
+    public void m_lift(double speed){
+       liftMotor.set(speed);
+    }
  
     @Override
     public void periodic() {

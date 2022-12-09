@@ -1,11 +1,11 @@
 package frc.robot.commands;
 
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Lift;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 
 public class LiftCommand extends CommandBase {
-    private final Intake thing;
+    private final Lift thing2;
     private double motorSpeed;
 
     /**
@@ -13,8 +13,8 @@ public class LiftCommand extends CommandBase {
      *
      * @param subsystem The subsystem used by this command.
      */
-    public LiftCommand(Intake subsystem, double speed) {
-      thing = subsystem;
+    public LiftCommand(Lift subsystem, double speed) {
+      thing2 = subsystem;
       motorSpeed = speed;
       // add execute here? wtf what kinda magic is this java?     
       addRequirements(subsystem);
@@ -27,7 +27,7 @@ public class LiftCommand extends CommandBase {
 
     @Override
     public void execute() {
-        thing.m_lift(motorSpeed);
+        thing2.m_lift(motorSpeed);
     }
 
     @Override

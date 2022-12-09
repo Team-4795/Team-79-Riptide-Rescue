@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Lift;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -31,6 +32,8 @@ public class RobotContainer {
  // private final Intake cnt_Intake = new Intake();
 
   private final Intake intake = new Intake();
+  private final Lift lift = new Lift();
+
 
   private final Joystick m_controller = new Joystick(0);
   // Create SmartDashboard chooser for autonomous routines
@@ -51,10 +54,18 @@ public class RobotContainer {
   private void configureButtonBindings() {
     
     m_drivetrain.setDefaultCommand(getArcadeDriveCommand());
-    final JoystickButton intakeButton = new JoystickButton(m_controller, 2);
-    final JoystickButton liftButton =  new JoystickButton(m_controller, 3);
-    intakeButton.whileHeld(new IntakeCommand(intake, 1.00));
-    liftButton.whileHeld(new LiftCommand(intake,1.00));
+    intake.setDefaultCommand(new IntakeCommand(intake, 0));
+    lift.setDefaultCommand(new LiftCommand(lift, 0));
+
+    final JoystickButton intakeButton = new JoystickButton(m_controller, 3);
+    final JoystickButton intakeButtonReverse = new JoystickButton(m_controller, 1);
+    final JoystickButton liftButtonReverse =  new JoystickButton(m_controller, 2);
+    final JoystickButton liftButton =  new JoystickButton(m_controller, 4);
+    intakeButton.whileHeld(new IntakeCommand(intake, 0.50));
+
+    intakeButtonReverse.whileHeld(new IntakeCommand(intake, -0.50));
+    liftButton.whileHeld(new LiftCommand(lift,0.50));
+    liftButtonReverse.whileHeld(new LiftCommand(lift,-0.50));
 
     
     
@@ -77,7 +88,7 @@ public class RobotContainer {
    */
   public Command getArcadeDriveCommand() {
     return new ArcadeDrive(
-        m_drivetrain, () -> m_controller.getRawAxis(2), () -> m_controller.getRawAxis(1));
+        m_drivetrain, () -> m_controller.getRawAxis(1), () -> m_controller.getRawAxis(2));
        //m_drivetrain, () -> m_controller.getPOV(2), () -> m_controller.getRawAxis(1));
       
   }

@@ -22,6 +22,7 @@ public class Drivetrain extends SubsystemBase {
 
   /** Creates a new Drivetrain. */
   public Drivetrain() {
+    m_diffDrive.setMaxOutput(.67); // ryans magical code
     //m_leftMotor.setInverted(true);
 
     // We need to invert one side of the drivetrain so that positive voltages
@@ -30,9 +31,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void arcadeDrive(double xaxisSpeed, double zaxisRotate) {
-     if(zaxisRotate<0) m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate+0.1);
-     if(zaxisRotate>0) m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate-0.1);
-
+    m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate);
 
     //m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate);
     //TO-DO Call the arcade drive method
