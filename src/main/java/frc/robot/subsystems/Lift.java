@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Lift extends SubsystemBase{
    
-    private final PWMVictorSPX liftMotor = new PWMVictorSPX(4);
+    private final PWMVictorSPX liftMotor = new PWMVictorSPX(2);
    
   
     public void m_lift(double speed){

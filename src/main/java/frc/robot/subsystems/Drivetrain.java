@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Drivetrain extends SubsystemBase {
 
   // TO-DO Create two PWMTalonSRX motor controllers
-  private final PWMVictorSPX m_leftMotor = new PWMVictorSPX(6);
+  private final PWMVictorSPX m_leftMotor = new PWMVictorSPX(4);
   private final PWMVictorSPX m_rightMotor = new PWMVictorSPX(5);
 
   
